@@ -26,7 +26,7 @@ $r->hmset("user:$uid",
 $r->hset("auths", $authToken, $uid);
 $r->zadd("users_by_time", time(), $username);
 
-setcookie($auth, $authToken, time()+3600*24*365);
+setcookie("auth", $authToken, time()+3600*24*365);
 
 include("header.php");
 ?>

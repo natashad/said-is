@@ -13,5 +13,5 @@
 
 <div id="page">
 	<div id="header">
-	<!-- <? include("navbar.php") ?> -->
+
 	</div>

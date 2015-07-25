@@ -85,7 +85,7 @@ function showPost($id) {
 	$post = $r->hgetall("post:$id");
 	if (empty($post)) return false;
 
-	$userid = $post['user_id'];
+	$userid = $post['userid'];
 	$username = $r->hget("user:$userid", "username");
 	$elapsed = strElapsed($post['time']);
 	$userlink = "<a class=\"username\" href=\"profile.php?u=" . urlencode($username) . "\">".$username."</a>";
