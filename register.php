@@ -3,20 +3,17 @@ include("saidis.php");
 
 # Validations.
 if (!gt("username") || !gt("password") || !gt("password2")) {
-	//error -- invalid entry
-	echo "Invalid Entry";
+	errorPage("Please enter all the form data");
 }
 if (gt("password") !== gt("password2")) {
-	//error -- passwords don't match
-	echo "Mismatched Passwords";
+	errorPage("Passwords do not match");
 }
 
 $username = gt("username");
 $password = gt("password");
 $r = redisLink();
 if ($r->hget("users", $username)) {
-	//error -- username in use
-	echo "Username is taken";
+	errorPage("The username $username is already Taken.");
 }
 
 $uid = $r->incr("next_user_id");
